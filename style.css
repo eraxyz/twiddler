@@ -1,0 +1,25 @@
+
+
+.container{
+  border: 1px solid black;
+display:flex;
+flex-direction: row;
+}
+
+.btn-container{
+  border: 1px solid black;
+
+}
+
+
+.tweet-container{
+  border: 1px solid black;
+
+}
+
+.name{
+  color:red;
+  border:0px;
+  background: transparent;
+  font-size: 20px;
+}
