@@ -2,6 +2,42 @@
  * NOTE: This file generates fake tweet data, and is not intended to be part of your implementation.
  * You can safely leave this file untouched, and confine your changes to index.html.
  */
+$(document).ready(function(){
+
+
+   $('button.populate').click(function(){
+          var $body = $('.tweet-container');
+          $body.html('');
+
+          var index = streams.home.length - 1;
+          while(index >= 0){
+            var tweet = streams.home[index];
+            var $tweet = $('<div></div>');
+            var $user = $('<button class="' + tweet.user + ' name"></button>');
+            var $message = $('<div></div>');
+            $user.text('@' + tweet.user);
+            $message.text(tweet.message +'\n'+tweet.created_at.toDateString() + ' ' + tweet.created_at.toLocaleTimeString()) ;
+            $user.appendTo($tweet);
+            $message.appendTo($tweet);
+            $tweet.appendTo($body);
+            index -= 1;
+          }
+
+$('.name').click(function(){
+  console.log('name clicked')
+
+
+
+})
+
+
+        })
+
+
+
+
+
+
 
 // set up data structures
 window.streams = {};
@@ -67,3 +103,4 @@ var writeTweet = function(message){
   tweet.message = message;
   addTweet(tweet);
 };
+});
