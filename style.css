@@ -18,6 +18,8 @@
 
 .tweet-container{
   width: 250px;
+  padding-right:20px;
+
 }
 
 .name{
@@ -40,4 +42,9 @@
 
 h3{
  color:#2196F3;
+}
+
+.timestamp{
+  font-size:14px;
+  margin-bottom: 10px;
 }
