@@ -1,25 +1,43 @@
 
 
 .container{
-  border: 1px solid black;
-display:flex;
-flex-direction: row;
+
+  display:flex;
+  flex-direction: row;
+  width: 500px;
 }
 
 .btn-container{
   border: 1px solid black;
-
+    width: 500px;
+    padding: 10px;
+    background: #2196F3;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
-
 .tweet-container{
-  border: 1px solid black;
-
+  width: 250px;
 }
 
 .name{
-  color:red;
-  border:0px;
-  background: transparent;
-  font-size: 20px;
+      color: #2196F3;
+    border: 0px;
+    background: transparent;
+    font-size: 15px;
+    padding-left: 0px;
+}
+
+.user-tweets-section{
+  width: 250px;
+}
+
+.user-tweets{
+  width: 250px;
+  border-left: 1px solid #2196F3;
+  padding-left: 20px;
+}
+
+h3{
+ color:#2196F3;
 }

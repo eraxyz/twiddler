@@ -23,15 +23,45 @@ $(document).ready(function(){
             index -= 1;
           }
 
-$('.name').click(function(){
-  console.log('name clicked')
+          $('.name').click(function(){
+            $('.user-tweets-section').html('');
+
+            if($(this).hasClass('shawndrost')){
+              $('.user-tweets-section').append('<h3>@shawndrost</h3>')
+              for (var obj of streams.users.shawndrost){
+                $('.user-tweets-section').append('<p>' + obj.message + ' ' + obj.created_at.toDateString() + ' ' + obj.created_at.toLocaleTimeString() + '</p>')
+              }//selector = certain name, return tweets from person)
+            }
+
+             else if($(this).hasClass('sharksforcheap')){
+              $('.user-tweets-section').append('<h3>@sharksforcheap</h3>')
+              for (var obj of streams.users.sharksforcheap){
+                $('.user-tweets-section').append('<p>' + obj.message + ' ' + obj.created_at.toDateString() + ' ' + obj.created_at.toLocaleTimeString() + '</p>')
+              }//selector = certain name, return tweets from person)
+            }
+
+            else if($(this).hasClass('mracus')){
+              $('.user-tweets-section').append('<h3>@mracus</h3>')
+              for (var obj of streams.users.mracus){
+                $('.user-tweets-section').append('<p>' + obj.message + ' ' + obj.created_at.toDateString() + ' ' + obj.created_at.toLocaleTimeString() + '</p>')
+              }//selector = certain name, return tweets from person)
+            }
+
+            else if($(this).hasClass('douglascalhoun')){
+              $('.user-tweets-section').append('<h3>@douglascalhoun</h3>')
+              for (var obj of streams.users.douglascalhoun){
+                $('.user-tweets-section').append('<p>' + obj.message + ' ' + obj.created_at.toDateString() + ' ' + obj.created_at.toLocaleTimeString() + '</p>')
+              }//selector = certain name, return tweets from person)
+            }
 
 
+          })
 
-})
+
 
 
         })
+
 
 
 
