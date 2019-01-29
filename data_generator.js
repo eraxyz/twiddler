@@ -4,7 +4,6 @@
  */
 $(document).ready(function(){
 
-
    $('button.populate').click(function(){
           var $body = $('.tweet-container');
           $body.html('');
@@ -15,50 +14,30 @@ $(document).ready(function(){
             var $tweet = $('<div></div>');
             var $user = $('<button class="' + tweet.user + ' name"></button>');
             var $message = $('<div></div>');
+            var $timestamp = $('<div class="timestamp"></div>')
             $user.text('@' + tweet.user);
-            $message.text(tweet.message +'\n'+tweet.created_at.toDateString() + ' ' + tweet.created_at.toLocaleTimeString()) ;
+            $message.text(tweet.message) ;
+            //$timestamp.text(tweet.created_at.toDateString() + ' ' + tweet.created_at.toLocaleTimeString())
+            $timestamp.text(moment(tweet.created_at.toDateString() + ' ' + tweet.created_at.toLocaleTimeString(), 'ddd MMM Do YYYY h:mm:ss a').fromNow())
             $user.appendTo($tweet);
             $message.appendTo($tweet);
+            $timestamp.appendTo($tweet);
             $tweet.appendTo($body);
             index -= 1;
           }
 
           $('.name').click(function(){
             $('.user-tweets-section').html('');
+            //console.log(event.target.classList[0])
+            var className = event.target.classList[0]
+            $('.user-tweets-section').append('<h3>'+'@'+className+'</h3')
 
-            if($(this).hasClass('shawndrost')){
-              $('.user-tweets-section').append('<h3>@shawndrost</h3>')
-              for (var obj of streams.users.shawndrost){
-                $('.user-tweets-section').append('<p>' + obj.message + ' ' + obj.created_at.toDateString() + ' ' + obj.created_at.toLocaleTimeString() + '</p>')
-              }//selector = certain name, return tweets from person)
+            for (var obj of streams.users[className]){
+              $('.user-tweets-section').append('<div class="usertweets">' + obj.message + '</div>');
+              $('.user-tweets-section').append('<div class="timestamp">' + moment(obj.created_at.toDateString() + ' ' + obj.created_at.toLocaleTimeString(), 'ddd MMM Do YYYY h:mm:ss a').fromNow() + '</div>')
             }
-
-             else if($(this).hasClass('sharksforcheap')){
-              $('.user-tweets-section').append('<h3>@sharksforcheap</h3>')
-              for (var obj of streams.users.sharksforcheap){
-                $('.user-tweets-section').append('<p>' + obj.message + ' ' + obj.created_at.toDateString() + ' ' + obj.created_at.toLocaleTimeString() + '</p>')
-              }//selector = certain name, return tweets from person)
-            }
-
-            else if($(this).hasClass('mracus')){
-              $('.user-tweets-section').append('<h3>@mracus</h3>')
-              for (var obj of streams.users.mracus){
-                $('.user-tweets-section').append('<p>' + obj.message + ' ' + obj.created_at.toDateString() + ' ' + obj.created_at.toLocaleTimeString() + '</p>')
-              }//selector = certain name, return tweets from person)
-            }
-
-            else if($(this).hasClass('douglascalhoun')){
-              $('.user-tweets-section').append('<h3>@douglascalhoun</h3>')
-              for (var obj of streams.users.douglascalhoun){
-                $('.user-tweets-section').append('<p>' + obj.message + ' ' + obj.created_at.toDateString() + ' ' + obj.created_at.toLocaleTimeString() + '</p>')
-              }//selector = certain name, return tweets from person)
-            }
-
 
           })
-
-
-
 
         })
 
