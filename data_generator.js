@@ -2,7 +2,11 @@
  * NOTE: This file generates fake tweet data, and is not intended to be part of your implementation.
  * You can safely leave this file untouched, and confine your changes to index.html.
  */
+
+
 $(document).ready(function(){
+
+
 
    $('button.populate').click(function(){
           var $body = $('.tweet-container');
@@ -49,6 +53,7 @@ $(document).ready(function(){
 
 
 // set up data structures
+window.visitor = [];
 window.streams = {};
 streams.home = [];
 streams.users = {};
@@ -57,6 +62,18 @@ streams.users.sharksforcheap = [];
 streams.users.mracus = [];
 streams.users.douglascalhoun = [];
 window.users = Object.keys(streams.users);
+
+
+$('.inputpopulate').click(function(){
+  visitor = $('.inputusername').val();
+  streams.users[visitor] = [];
+  var inputTweet = $('.inputtweet').val();
+  writeTweet(inputTweet);
+
+$( "button.populate" ).trigger( "click" );
+
+})
+
 
 // utility function for adding tweets to our data structures
 var addTweet = function(newTweet){
@@ -110,6 +127,7 @@ var writeTweet = function(message){
   var tweet = {};
   tweet.user = visitor;
   tweet.message = message;
+  tweet.created_at = new Date();
   addTweet(tweet);
 };
 });
